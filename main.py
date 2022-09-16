@@ -1,16 +1,20 @@
-# This is a sample Python script.
+from pymongo import MongoClient
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+client = MongoClient("localhost", 27017)
 
+# print(client.list_database_names())
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+db = client.Estudo_MongoDB
+teste = db.teste.find_one({
+    "bala": "Juquinha"
+})
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(teste)
+# db.teste.insert_many(
+#     [
+#         {"id": 1},
+#         {"id": 12},
+#         {"id": 500},
+#         {"id": -222},
+#     ]
+# );
